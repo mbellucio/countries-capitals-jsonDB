@@ -10,7 +10,6 @@ print(response.raise_for_status())
 json_data = response.json()
 
 
-
 europe = []
 south_america = []
 north_america = []
@@ -43,47 +42,28 @@ for country in json_data:
                 translation = translator.translate(country['capital'])
                 capital_in_mtpl_langs.append(translation)
 
-            match region:
-                case 'Asia':
-                    current_country = {
+            current_country = {
                         'Country': country_name,
                         'Capital': capital_in_mtpl_langs
                     }
+
+            match region:
+                case 'Asia':
                     asia.append(current_country)
 
                 case 'Europe':
-                    current_country = {
-                        'Country': country_name,
-                        'Capital': capital_in_mtpl_langs
-                    }
                     europe.append(current_country)
 
                 case 'Africa':
-                    current_country = {
-                        'Country': country_name,
-                        'Capital': capital_in_mtpl_langs
-                    }
                     africa.append(current_country)
 
                 case 'Oceania':
-                    current_country = {
-                        'Country': country_name,
-                        'Capital': capital_in_mtpl_langs
-                    }
                     oceania.append(current_country)
 
                 case 'South America':
-                    current_country = {
-                        'Country': country_name,
-                        'Capital': capital_in_mtpl_langs
-                    }
                     south_america.append(current_country)
 
                 case 'North America':
-                    current_country = {
-                        'Country': country_name,
-                        'Capital': capital_in_mtpl_langs
-                    }
                     north_america.append(current_country)
 
         except KeyError:
