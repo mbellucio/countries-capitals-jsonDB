@@ -30,7 +30,7 @@ for country in json_data:
             country_name = translator.translate(country['name'])
 
             if region == 'Americas':
-                if region in south_america_countries:
+                if country['name'] in south_america_countries:
                     region = 'South America'
                 else:
                     region = 'North America'
